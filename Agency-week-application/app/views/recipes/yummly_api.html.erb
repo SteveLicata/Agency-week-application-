@@ -1,3 +1,5 @@
-<%=  @ingredient %>
-<%=  @search_criteria %>
-<%=  @response %>
+<h1>You are looking for: <%=  @ingredient %></h1>
+<% @response.each do |response| %>
+  <%=  response["recipeName"].to_s%><br>
+
+<%end%>
