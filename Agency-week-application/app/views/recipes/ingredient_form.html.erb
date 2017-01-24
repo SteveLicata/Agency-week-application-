@@ -1,0 +1,6 @@
+
+<%= form_tag("/recipes/yummly-api-call", method: "post") do |f| %>
+  <%= label_tag(:ingredient_of_the_day, "Search for an ingredient:") %>
+  <%= text_field_tag(:ingredient_of_the_day) %> <br>
+<%= submit_tag("Submit")%>
+<% end %>

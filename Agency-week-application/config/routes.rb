@@ -5,9 +5,11 @@ Rails.application.routes.draw do
  root "welcome#home", as: "home_page"
 
 
-resources :users
-resources :recipes
+ resources :users
 
+ get "/recipes/search" => "recipes#ingredient_form", as: "recipe_search"
 
+ post "/recipes/yummly-api-call"       => "recipes#yummly_api"
+ resources :recipes
 
 end

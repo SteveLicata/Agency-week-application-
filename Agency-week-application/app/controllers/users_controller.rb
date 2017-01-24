@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 before_action :authenticate_user!
 
   def index
-    
+
   end
 
   def new
@@ -14,6 +14,7 @@ before_action :authenticate_user!
 
   def show
     @user =User.find(params[:id])
+    @recipe = Recipe.all
 
   end
 

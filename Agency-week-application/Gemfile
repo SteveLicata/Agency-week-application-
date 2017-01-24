@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem "devise"
 gem "pry-rails"
 gem "awesome_print"
+gem "paperclip"
+gem "httparty"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")

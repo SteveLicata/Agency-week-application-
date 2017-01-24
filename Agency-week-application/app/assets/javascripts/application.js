@@ -42,5 +42,7 @@ function closeNav() {
     document.body.style.backgroundColor = "white";
 };
 
+// NavBar Attribution:
+// http://www.w3schools.com/howto/howto_js_sidenav.asp
 
 });//end turbolinks load
