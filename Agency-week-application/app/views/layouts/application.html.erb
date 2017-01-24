@@ -14,7 +14,7 @@
       <a id="closingx" href="javascript:void(0)" class="closebtn">&times;</a>
       	<% if  (user_signed_in?) %>
           <%= link_to "Home", home_page_path %>
-          <%= link_to "Profile", user_path %>
+          <%= link_to "Profile", user_path(current_user.id) %>
           <%= link_to "Recipe Search", new_recipe_path %>
       	  <%= link_to "Sign out", { :action => "destroy", :controller=> "devise/sessions"}, method: :delete %>
         <% else %>
