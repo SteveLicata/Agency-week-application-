@@ -11,7 +11,9 @@ class RecipesController < ApplicationController
   def yummly_api
     @message = "Yummly API"
     @ingredient = params[:ingredient_of_the_day]
-    @response = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=b0c40682&_app_key=8bd6511ce41447b816cc119be2e8f3a1&q=#{@ingredient}")
+    @user = User.find(current_user.id)
+    @excluded_response = @current_user.allergies
+    @response = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=b0c40682&_app_key=8bd6511ce41447b816cc119be2e8f3a1&q=#{@ingredient}&excludeIngredient[]=#{@excluded_response}")
 
     @search_criteria = @response["criteria"]["q"]
 

@@ -6,4 +6,6 @@
 <br>
 <h3><%= image_tag @user.image.url %></h3>
 
+<h3> <%= link_to "Edit Profile", edit_user_registration_path %></h3>
+
 <h3>Recipe List:</h3><%= @recipe.all %>
