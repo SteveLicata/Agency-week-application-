@@ -8,10 +8,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   # paperclip
-  has_attached_file :image,
+  has_attached_file :avatar,
          :styles => { :medium => "300x300px>", :thumb => "100x100px>" },
          :default_url => "/assets/default-user-image.png"
 
-  validates_attachment_content_type :image,
+  validates_attachment_content_type :avatar,
          :content_type => /\Aimage\/.*\Z/
 end
