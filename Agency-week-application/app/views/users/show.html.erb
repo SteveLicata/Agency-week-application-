@@ -1,10 +1,16 @@
 <h3>Name:</h3><%= @user.first_name%> <%= @user.last_name%>
 <br>
+<% @allergy = @user.allergies%>
+<% @exclude_response = @user.allergies%>
+<% @allergy = @user.allergies%>
 <h3>Allergies:</h3><%= @user.allergies%>
+
 <br>
 <h3>Email:</h3><%=@user.email%>
 <br>
-<h3><%= image_tag @user.image.url %></h3>
+<h3><%= image_tag @user.avatar.url %></h3>
+
+<h1><%= link_to "Edit Profile", edit_user_registration_path %></h1>
 
 <h3> <%= link_to "Edit Profile", edit_user_registration_path %></h3>
 
