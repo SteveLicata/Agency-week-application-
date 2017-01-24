@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//needed for JS to work across multiple files/pages
 document.addEventListener('turbolinks:load', function() {
 
 console.log("loaded");
