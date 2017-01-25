@@ -1,10 +1,18 @@
-<%= @message %> <br><br>
+
 
 <hr>
 <h3>Display search info:</h3>
 
-<%= @search_criteria %>
+<% @search_criteria %>
 
 <hr>
 
-<%= @response %>
+<% @saved.each do |response| %>
+  1. <%= response.imageURLsBySize %><br>
+  2. <%= response.ingredient_of_the_day %><br>
+  3. <%= response.ingredients %><br>
+  4. <%= response.rating %><br>
+  5. <%= response.recipeName %><br>
+  6. <%= response.sourceRecipeUrl %><br>
+  <hr>
+<% end %>

@@ -2,6 +2,8 @@ class RecipesController < ApplicationController
   require 'json'
   def index
     @recipe = Recipe.all
+    @user = User.find(current_user.id)
+    @saved = @user.recipes
   end
 
   def ingredient_form
@@ -19,7 +21,7 @@ class RecipesController < ApplicationController
 
     # render :json => @response
     @search_criteria = @response["criteria"]["q"]
-
+    
   end
 
 
