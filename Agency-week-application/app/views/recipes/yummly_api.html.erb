@@ -1,5 +1,25 @@
 <h1>You are looking for: <%=  @ingredient %></h1>
-<% @response.each do |response| %>
-  <%=  response["recipeName"].to_s%><br>
+
+<% @response["matches"].each do |response| %>
+  <% @image = response["smallImageUrls"][0]%>
+  <h3>Recipe Image: <%= image_tag(@image) %><br></h3>
+  <h3>Recipe Rating: <%= response["rating"] %><br></h3>
+  <h3>Recipe Name: <%=  response["recipeName"]%><br></h3>
+  <% @time = response["totalTimeInSeconds"]/60%>
+  <h3>Recipe Time: <%=  @time %> min<br></h3>
+  <h3>Recipe ID: <%=  response["id"]%><br></h3>
+  <h3>Recipe Ingredients:
+        <% response["ingredients"].each do |ing|%>
+          <%= ing %><br>
+        <%end%>
+    <br></h3>
+  <h3>Recipe Flavors:
+        <% response["flavors"].each do |key, value|%>
+            <%= key %> <br>
+            <%= value %> <br>
+        <%end%>
+    <br></h3>
+
+    <hr>
 
 <%end%>
