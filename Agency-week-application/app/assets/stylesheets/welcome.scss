@@ -4,6 +4,7 @@
 body {
     // font-family: "Lato", sans-serif;
     transition: background-color .5s;
+    color: #818181;
 }
 
 .sidenav {
@@ -13,7 +14,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #99f0ca;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -43,6 +44,7 @@ body {
 #main {
     transition: margin-left .5s;
     padding: 16px;
+    // background-color: #fdffe7;
 }
 
 @media screen and (max-height: 450px) {
@@ -53,4 +55,35 @@ body {
 img {
   height: 100px;
   width: 100px;
+}
+
+.card {
+  margin: 0 auto;
+  width: 300px;
+}
+
+// main header
+h2 {
+  font-family: 'Vast Shadow', cursive;
+}
+
+// navbar
+h4 {
+  font-family: 'Neuton', serif;
+}
+
+// profile
+h5 {
+  font-family: 'Playfair Display SC', serif;
+}
+
+// search
+h3 {
+  font-family: 'Mr De Haviland', cursive;
+}
+
+
+
+h6 {
+  font-family: 'Oswald', sans-serif;
 }
