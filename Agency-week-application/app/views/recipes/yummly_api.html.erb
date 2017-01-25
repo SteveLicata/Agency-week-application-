@@ -1,27 +1,51 @@
-<h1>You are looking for: <%=  @ingredient %></h1>
 
-<% @response["matches"].each do |response| %>
-  <% @image = response["smallImageUrls"][0]%>
-  <h3>Recipe Image: <%= image_tag(@image) %><br></h3>
-  <h3>Recipe Rating: <%= response["rating"] %><br></h3>
-  <h3>Recipe Name: <%=  response["recipeName"]%><br></h3>
-  <% @time = response["totalTimeInSeconds"]/60%>
-  <h3>Recipe Time: <%=  @time %> min<br></h3>
+<h2>You are looking for: <%=  @ingredient %></h2>
 
-  <h3>Recipe Ingredients:  <br>
-        <% response["ingredients"].each do |ing|%>
 
-        <%= ing %>,<br>
+  <% @response["matches"].each do |response| %>
+  <div class="card">
+
+
+    <div class="card-image waves-effect waves-block waves-light">
+      <% @image = response["smallImageUrls"][0]%>
+      <img class="activator" src=<%= @image %> >
+    </div>
+
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Title: <i class="material-icons right">More Info</i><%= response["recipeName"] %></span>
+      <p> <% @url_for_source = "http://www.yummly.com/recipe/#{response["id"]}"%>
+          <%= link_to "Link to Recipe", "http://www.yummly.com/recipe/#{response["id"]}", :target => "_blank" %></p>
+    </div>
+    <div class="card-action">
+      <%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: response["recipeName"], ingredients:  response["ingredients"].join(","), rating: response["rating"], sourceRecipeUrl:  @url_for_source}, method: :post %>
+
+
+            <a href="#">Delete</a>
+    </div>
+
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><%= response["recipeName"] %><i class="material-icons right">close</i></span>
+
+      <h3 class="card-text">
+        <strong>Rating: </strong><%= response["rating"] %>
+
+        <br>
+
+        <% @time = response["totalTimeInSeconds"]/60%>
+        <strong>Cooking Time: </strong><%=  @time %> min
+
+        <br>
+
+        <strong>Ingredients: </strong>
+        <% response["ingredients"].each do |ing|%><br>
+        </li><%= ing %></li>
         <%end%>
-    <br></h3>
-    <% @url_for_source = "http://www.yummly.com/recipe/#{response["id"]}"%>
-<%= link_to "Link to Recipe", "http://www.yummly.com/recipe/#{response["id"]}", :target => "_blank" %>
+
+      </h3>
+
+    </div>
 
 
 
-<%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: response["recipeName"], ingredients:  response["ingredients"].join(","), rating: response["rating"], sourceRecipeUrl:  @url_for_source}, method: :post %>
-
-
-    <hr>
-
+</div> <br>
 <%end%>
