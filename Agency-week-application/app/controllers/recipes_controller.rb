@@ -19,7 +19,8 @@ class RecipesController < ApplicationController
     puts "RESOPNSNSN", @response
     # @finalurl = HTTParty.get("http://www.yummly.com/recipe/#{@response.id}")
     @search_criteria = @response["criteria"]["q"]
-    render :json => @response
+    # JSON.parse(@response)
+    # render :json => @response
 
   end
 
