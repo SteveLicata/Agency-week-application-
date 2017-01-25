@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-
+  require 'json'
   def index
     @recipe = Recipe.all
   end
@@ -15,29 +15,44 @@ class RecipesController < ApplicationController
     @excluded_response = @current_user.allergies
     # @response = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=ENV['YUMMLY_API_ID']&_app_key=ENV['YUMMLY_API_KEY']&q=#{@ingredient}&excludedIngredient[]=#{@excluded_response}")
     @response = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=#{ENV['YUMMLY_API_ID']}&_app_key=#{ENV['YUMMLY_API_KEY']}&q=#{@ingredient}&excludedIngredient[]=#{@excluded_response}")
-    puts "RESOPNSNSN", @response
-    # @finalurl = HTTParty.get("http://www.yummly.com/recipe/#{@response.id}")
-    @search_criteria = @response["criteria"]["q"]
-    # JSON.parse(@response)
+
     # render :json => @response
+    @search_criteria = @response["criteria"]["q"]
 
   end
 
-  # def create
-  #   puts "CHECK HERE", params.inspect
-  #
-  #
-  #   if (@recipe)
-  #     redirect_to url_for(:controller => :recipes, :action => :index)
-  #   else
-  #     redirect_to url_for(:controller => :recipes, :action => :new)
-  #   end
+
+
+  def create
+    # puts "CREATE ACTION"
+    # puts params.inspect
+
+
+    # @new_recipe = Recipe.create(recipe_params)
+      @new_recipe = Recipe.new(
+      ingredient_of_the_day: params[:ingredient_of_the_day],
+      user_id: params[:user_id].to_i,
+      imageURLsBySize: params[:imageURLsBySize],
+      recipeName: params[:recipeName],
+      ingredients: params[:ingredients],
+      rating: params[:rating].to_i,
+      sourceRecipeUrl: params[:sourceRecipeUrl]
+      )
+      @new_recipe.save
+    puts "New recipe", @new_recipe.inspect
+
+
+    # if (@recipe)
+    #   redirect_to url_for(:controller => :recipes, :action => :index)
+    # else
+    #   redirect_to url_for(:controller => :recipes, :action => :new)
+    # end
   # end
 
   # def show
   #   @recipe = Recipe.find(params[:id])
   #
-  # end
+  end
 
   def edit
     @recipe = Recipe.find(params[:id])
@@ -47,7 +62,7 @@ class RecipesController < ApplicationController
     puts "CHECK HERE", params.inspect
     @recipe = Recipe.find(params[:id])
     @recipe.update({
-      ingredient_of_the_day:params[:recipe][:ingredient_of_the_day],
+      ingredient_of_the_day: params[:recipe][:ingredient_of_the_day],
       user_id:params[:recipe][:user_id],
       imageURLsBySize: params[:recipe][:imageURLsBySize],
       recipeName: params[:recipe][:recipeName],
@@ -67,10 +82,12 @@ class RecipesController < ApplicationController
       redirect_to url_for(:controller => :recipes, :action => :index)
   end
 
-  # private
-  #
-  #   def recipe_params
-  #     params.require(:recipe).permit(:ingredient_of_the_day, :user_id, :imageURLsBySize, :recipeName, :ingredients, :rating, :sourceRecipeUrl)
-  #   end
+
+  private
+  def recipe_params
+    params.require(:recipe).permit(:ingredient_of_the_day, :user_id, :imageURLsBySize, :recipeName, :ingredients, :rating, :sourceRecipeUrl)
+
+  end
+
 
 end

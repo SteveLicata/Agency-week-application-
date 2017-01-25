@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170124181845) do
     t.datetime "updated_at",            null: false
     t.string   "imageURLsBySize"
     t.string   "recipeName"
-    t.time     "ingredients"
+    t.string   "ingredients"
     t.integer  "rating"
     t.string   "sourceRecipeUrl"
     t.integer  "user_id"

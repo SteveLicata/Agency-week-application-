@@ -7,18 +7,20 @@
   <h3>Recipe Name: <%=  response["recipeName"]%><br></h3>
   <% @time = response["totalTimeInSeconds"]/60%>
   <h3>Recipe Time: <%=  @time %> min<br></h3>
-  <h3>Recipe ID: <%=  response["id"]%><br></h3>
-  <h3>Recipe Ingredients:
+
+  <h3>Recipe Ingredients:  <br>
         <% response["ingredients"].each do |ing|%>
-          <%= ing %><br>
+
+        <%= ing %>,<br>
         <%end%>
     <br></h3>
-  <h3>Recipe Flavors:
-        <% response["flavors"].each do |key, value|%>
-            <%= key %> <br>
-            <%= value %> <br>
-        <%end%>
-    <br></h3>
+    <% @url_for_source = "http://www.yummly.com/recipe/#{response["id"]}"%>
+<%= link_to "Link to Recipe", "http://www.yummly.com/recipe/#{response["id"]}", :target => "_blank" %>
+
+
+
+<%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: response["recipeName"], ingredients:  response["ingredients"].join(","), rating: response["rating"], sourceRecipeUrl:  @url_for_source}, method: :post %>
+
 
     <hr>
 
