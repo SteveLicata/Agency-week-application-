@@ -1,3 +1,4 @@
+<hr>
 <div class="user-info-div">
 
 <img src="/assets/berry.png" alt="">
@@ -8,19 +9,19 @@
 <img src="/assets/food-19.png" alt="">
 <img src="/assets/food-22.png" alt="">
 
-<h5>Name:</h5><%= @user.first_name%> <%= @user.last_name%>
+<h4>Name:</h4><%= @user.first_name%> <%= @user.last_name%>
 <br><hr>
 
 <% @allergy = @user.allergies%>
 <% @exclude_response = @user.allergies%>
 <% @allergy = @user.allergies%>
-<h5>Allergies:</h5><%= @user.allergies%>
+<h4>Allergies:</h4><%= @user.allergies%>
 <br><hr>
 
-<h5>Email:</h5><%=@user.email%>
+<h4>Email:</h4><%=@user.email%>
 <br><hr>
 
-<h5><%= image_tag @user.avatar.url %></h5>
+<h4><%= image_tag @user.avatar.url %></h4>
 <hr>
 <h4><%= link_to "Edit Profile", edit_user_registration_path %></h4>
 

@@ -1,4 +1,5 @@
-<h3>Pick Your Ingredient: </h3>
+<hr>
+<h4>Pick Your Ingredient: </h4>
 <%= form_tag("/recipes/yummly-api-call", method: "post") do |f| %>
   <%= label_tag(:ingredient_of_the_day, "Search for an ingredient:") %>
   <%= text_field_tag(:ingredient_of_the_day) %> <br>
