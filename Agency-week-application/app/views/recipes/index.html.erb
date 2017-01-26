@@ -1,18 +1,36 @@
-
-
 <hr>
-<h3>Display search info:</h3>
-
-<% @search_criteria %>
-
+<h3>Favorite Recipes:</h3>
 <hr>
-
+<div class="container">
 <% @saved.each do |response| %>
-  1. <%= response.imageURLsBySize %><br>
-  2. <%= response.ingredient_of_the_day %><br>
-  3. <%= response.ingredients %><br>
-  4. <%= response.rating %><br>
-  5. <%= response.recipeName %><br>
-  6. <%= response.sourceRecipeUrl %><br>
+<div class="card" id="saved-recipes">
+
+  <div class="card-image waves-effect waves-block waves-light">
+
+    <img class="activator" src= <%= response.imageURLsBySize %> >
+  </div>
+
+  <div class"card-content">
+    <span class="card-title activator grey-text text-darken">Title: <i class="material-icons right">More Info</i><%= response.recipeName %></span>
+  </div>
+
+  <div class="card-action">
+    <%= link_to "Link to Recipe", response.sourceRecipeUrl %><br>
   <hr>
+  </div>
+
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><%= response.recipeName %><i class="material-icons right">close</i></span>
+
+    <h3 class="card-text">
+      Rating:
+      <p> <%= response.rating %><br></p>
+      Ingredients:
+      <p> <%= response.ingredients %><br></p>
+      <% puts "ingredients", response.ingredients%>
+    </h3>
+  </div>
+
+</div><br>
 <% end %>
+</div>

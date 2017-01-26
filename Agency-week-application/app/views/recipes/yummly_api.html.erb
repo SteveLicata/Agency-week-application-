@@ -1,5 +1,5 @@
 
-<h2>You are looking for: <%=  @ingredient %></h2>
+<h2>You Searched For: <%=  @ingredient %></h2>
 
 <hr>
 <hr>
@@ -25,10 +25,12 @@
           <%= link_to "Link to Recipe", "http://www.yummly.com/recipe/#{response["id"]}", :target => "_blank" %></p>
     </div>
     <div class="card-action">
+
       <p id="savebttn">
         <%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: response["recipeName"], ingredients:  response["ingredients"].join(","), rating: response["rating"], sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: "savebbttn" %>
       </p>
             <a class="deletebttn" href="#">Delete</a>
+
     </div>
 
     <div class="card-reveal">
