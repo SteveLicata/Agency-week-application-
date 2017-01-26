@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   require 'json'
+
   def index
     @recipe = Recipe.all
     @user = User.find(current_user.id)
@@ -21,13 +22,13 @@ class RecipesController < ApplicationController
 
     # render :json => @response
     @search_criteria = @response["criteria"]["q"]
-    
+
   end
 
 
 
   def create
-    # puts "CREATE ACTION"
+    puts "CREATE ACTION"
     # puts params.inspect
 
 
@@ -45,6 +46,16 @@ class RecipesController < ApplicationController
     puts "New recipe", @new_recipe.inspect
 
 
+    respond_to do |format|
+      # If request is JS (AJAX)
+      format.js
+
+      # If request is normal Rails way
+      format.html { redirect_to recipes_path }
+    end
+
+
+
     # if (@recipe)
     #   redirect_to url_for(:controller => :recipes, :action => :index)
     # else
@@ -56,6 +67,8 @@ class RecipesController < ApplicationController
   #   @recipe = Recipe.find(params[:id])
   #
   end
+
+
 
   def edit
     @recipe = Recipe.find(params[:id])

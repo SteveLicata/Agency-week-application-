@@ -41,6 +41,62 @@ function closeNav() {
     document.getElementById("main").style.marginLeft= "0";
     document.body.style.backgroundColor = "white";
 };
+//  num = 0;
+//  secondnum = 1;
+// $('.card')[num].style.display='none';$('.card')[secondnum].style.display = 'initial';
+//  function display() {
+//    $('.card')[num+1].style.display='none';$('.card')[secondnum+1].style.display = 'initial';
+//    num = num+1
+//    secondnum = secondnum +1
+// };
+// $('#savebttn').addEventListener('click', display());
+
+
+
+// var deletebttn = document.getElementById('deletebttn');
+// var savebbttn = document.getElementById('savebbttn');
+// var card =document.getElementsByClassName('card');
+// var num
+// var secondnum
+//
+// console.log(savebbttn);
+// savebbttn.addEventListener('click', function(event) {
+//   event.preventDefault();
+//   console.log("button sclicked");
+//     num = 0;
+//     secondnum = 1;
+//
+//     card[num++].style.display = 'none';
+//     card[secondnum++].style.display = 'initial';
+//
+//     num = num++
+//     secondnum = secondnum ++
+//     console.log(num, secondnum);
+//   });
+
+var deletebttn = document.getElementsByClassName('deletebttn');
+var savebbttn = document.getElementsByClassName('savebbttn');
+var card = document.getElementsByClassName('card');
+var num = -1;
+var secondnum = 0;
+
+console.log(savebbttn);
+for (var i = 0; i < savebbttn.length; i++) {
+
+  savebbttn[i].addEventListener('click', function(){
+    console.log("button sclicked");
+    // event.preventDefault();
+      num++;
+      secondnum++;
+
+      card[num].style.display = 'none';
+      card[secondnum].style.display = 'initial';
+
+
+    console.log(num, secondnum);
+  });
+}
+
 
 // NavBar Attribution:
 // http://www.w3schools.com/howto/howto_js_sidenav.asp

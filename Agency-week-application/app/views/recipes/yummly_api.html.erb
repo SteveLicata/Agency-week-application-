@@ -1,14 +1,17 @@
 
 <h2>You are looking for: <%=  @ingredient %></h2>
-<% @response["matches"][0].each do |show|%>
-      <%= show%>
-<%end%>
+
 <hr>
 <hr>
 <hr>
 
-  <% @response["matches"].each do |response| %>
-  <div class="card">
+  <% @response["matches"].each_with_index do |response, i| %>
+      <%=  puts i %>
+
+
+        <div style="display:<%= i>=1 ? 'none' : 'initial' %>" class="card">
+      <script> </script>
+  <!-- <div class="card"> -->
 
 
     <div class="card-image waves-effect waves-block waves-light">
@@ -22,8 +25,10 @@
           <%= link_to "Link to Recipe", "http://www.yummly.com/recipe/#{response["id"]}", :target => "_blank" %></p>
     </div>
     <div class="card-action">
-      <p id="savebttn"><%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: response["recipeName"], ingredients:  response["ingredients"].join(","), rating: response["rating"], sourceRecipeUrl:  @url_for_source}, method: :post %></p>
-            <a id="deletebttn" href="#">Delete</a>
+      <p id="savebttn">
+        <%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: response["recipeName"], ingredients:  response["ingredients"].join(","), rating: response["rating"], sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: "savebbttn" %>
+      </p>
+            <a class="deletebttn" href="#">Delete</a>
     </div>
 
     <div class="card-reveal">
@@ -35,7 +40,7 @@
         <br>
 
         <% @time = response["totalTimeInSeconds"]/60%>
-        <% puts "CHECK HERER ALLO ", @time%>
+
         <strong>Cooking Time: </strong><%=  @time %> min
 
         <br>
@@ -48,6 +53,7 @@
       </h3>
 
     </div>
+
 
 
 
