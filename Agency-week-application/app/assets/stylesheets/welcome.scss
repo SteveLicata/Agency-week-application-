@@ -5,6 +5,9 @@ body {
     // font-family: "Lato", sans-serif;
     transition: background-color .5s;
     color: #818181;
+    background-color: #fff2be;
+    background-size: contain;
+
 }
 
 .sidenav {
@@ -44,7 +47,9 @@ body {
 #main {
     transition: margin-left .5s;
     padding: 16px;
-    // background-color: #fdffe7;
+    background-color: #fff2be;
+    // BACKGROUND COLOR**
+    height: 100%;
 }
 
 @media screen and (max-height: 450px) {
@@ -57,14 +62,40 @@ img {
   width: 100px;
 }
 
+.welcome-div, .user-info-div {
+color: red;
+text-align: center;
+background-color: #ffe869;
+width: 70%;
+margin: 0 auto;
+border-radius: 15%;
+// height: 100vh;
+}
+
+
+
 .card {
   margin: 0 auto;
   width: 300px;
 }
 
-// main header
+.container {
+  // height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+img.activator {
+  height: 200px;
+  width: 300px;
+}
+
+// search
 h2 {
   font-family: 'Vast Shadow', cursive;
+  font-size: 40px;
 }
 
 // navbar
@@ -77,13 +108,15 @@ h5 {
   font-family: 'Playfair Display SC', serif;
 }
 
-// search
+// header
 h3 {
   font-family: 'Mr De Haviland', cursive;
+  font-size: 50px;
 }
 
 
 
 h6 {
   font-family: 'Oswald', sans-serif;
+  font-size: 30px
 }
