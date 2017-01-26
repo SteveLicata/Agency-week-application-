@@ -1,15 +1,17 @@
 
-<h2>You Searched For: <%=  @ingredient %></h2>
+<h4>You Searched For: <%=  @ingredient %></h4>
 
-<hr>
-<hr>
 <hr>
 
 <div class="row">
 
   <% @response["matches"].each_with_index do |response, i| %>
       <%=  puts i %>
-    <div style="display:<%= i>=1 ? 'none' : 'block' %>" class="card">
+
+
+
+  <div style="display:<%= i>=1 ? 'none' : 'block' %>" class="card">
+
     <div class="card-image waves-effect waves-block waves-light">
       <% @image = response["smallImageUrls"][0]%>
       <img class="activator" src=<%= @image %> >
@@ -23,8 +25,10 @@
     <div class="card-action">
 
       <p id="savebttn">
-      </p>
+
+
       <%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: @title, ingredients:  @ingredients , rating: @rate, sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: 'savebbttn' %>
+        </p>
       <a class="deletebttn" href="">Next</a>
 
 
