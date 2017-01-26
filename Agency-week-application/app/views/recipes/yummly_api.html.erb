@@ -3,12 +3,12 @@
 
 <hr>
 
+
   <% @response["matches"].each_with_index do |response, i| %>
       <%=  puts i %>
 
 
   <div style="display:<%= i>=1 ? 'none' : 'block' %>" class="card">
-
 
 
     <div class="card-image waves-effect waves-block waves-light">
@@ -24,27 +24,41 @@
     <div class="card-action">
 
       <p id="savebttn">
-        <%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: response["recipeName"], ingredients:  response["ingredients"].join(","), rating: response["rating"], sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: "savebbttn" %>
-      </p>
-            <a class="deletebttn" href="">Delete</a>
+
+
+      <%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: @title, ingredients:  @ingredients , rating: @rate, sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: 'savebbttn' %>
+        </p>
+      <a class="deletebttn" href="">Next</a>
+
+
 
     </div>
 
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><%= response["recipeName"] %><i class="material-icons right">close</i></span>
+      <span class="card-title grey-text text-darken-4">
+        <% @title = response["recipeName"]   %>
+      <%= @title %>
+      <i class="material-icons right">close</i></span>
 
       <h3 class="card-text">
-        <strong>Rating: </strong><%= response["rating"] %>
+        <strong>Rating: </strong>
+        <% @rate = response["rating"]  %>
+        <%= @rate %>
 
         <br>
 
-        <% @time = response["totalTimeInSeconds"]/60%>
+        <% if response['totalTimeInSeconds'] != nil %>
+            <% @time = response["totalTimeInSeconds"]/60%>
 
-        <strong>Cooking Time: </strong><%=  @time %> min
+            <strong>Cooking Time: </strong><%=  @time %> min
+        <% else %>
+            <%= "undefined" %>
+        <%end  %>
 
         <br>
 
         <strong>Ingredients: </strong>
+        <% @ingredients = response["ingredients"].join(', ') %>
         <% response["ingredients"].each do |ing|%><br>
         </li><%= ing %></li>
         <%end%>

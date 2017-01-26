@@ -10,6 +10,7 @@ Rails.application.routes.draw do
  get "/recipes/search" => "recipes#ingredient_form", as: "recipe_search"
 
  post "/recipes/yummly-api-call"       => "recipes#yummly_api"
+ get "/recipes/yummly-api-call" =>  "recipes#yummly_api", as: "yummly_api"
  resources :recipes
 
 end

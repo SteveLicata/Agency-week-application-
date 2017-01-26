@@ -79,8 +79,15 @@ var savebbttn = document.getElementsByClassName('savebbttn');
 var card = document.getElementsByClassName('card');
 var num = -1;
 var secondnum = 0;
+//
+// for (var i = 0; i < card.length; i++) {
+//   if (i == 0)  {
+//     card[i].style.display = 'initial';
+//   }else if (i >= 1) {
+//     card[i].style.display = 'none';
+//   }
+// }
 
-console.log(savebbttn);
 for (var i = 0; i < savebbttn.length; i++) {
 
   savebbttn[i].addEventListener('click', function(){
@@ -90,11 +97,27 @@ for (var i = 0; i < savebbttn.length; i++) {
       secondnum++;
 
       card[num].style.display = 'none';
-      card[secondnum].style.display = 'initial';
+      card[secondnum].style.display = 'block';
 
 
     console.log(num, secondnum);
   });
+}
+for (var i = 0; i < deletebttn.length; i++) {
+  deletebttn[i].addEventListener('click', function(event){
+    console.log("button dclicked");
+    event.preventDefault();
+      num++;
+      secondnum++;
+
+      card[num].style.display = 'none';
+      card[secondnum].style.display = 'block';
+
+
+    console.log(num, secondnum);
+
+
+  })
 }
 
 
