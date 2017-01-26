@@ -22,21 +22,21 @@
     <div class="card-action">
       <%= link_to 'Delete',  { action: :destroy, id: response.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-      
+
 
 
     </div>
 
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><%= response.recipeName %><i class="material-icons right">close</i></span>
+      <span class="card-title grey-text text-darken-4"><%= response.recipeName %><i class="material-icons right">X</i></span>
 
-      <h3 class="card-text">
+      <p class="card-text">
         Rating:
         <p> <%= response.rating %><br></p>
         Ingredients:
         <p> <%= response.ingredients %><br></p>
         <% puts "ingredients", response.ingredients%>
-      </h3>
+      </p>
     </div>
 
   </div><br>

@@ -38,9 +38,9 @@
       <span class="card-title grey-text text-darken-4">
         <% @title = response["recipeName"]   %>
       <%= @title %>
-      <i class="material-icons right">close</i></span>
+      <i class="material-icons right">X</i></span>
 
-      <h3 class="card-text">
+      <p class="card-text">
         <strong>Rating: </strong>
         <% @rate = response["rating"]  %>
         <%= @rate %>
@@ -63,7 +63,7 @@
         </li><%= ing %></li>
         <%end%>
 
-      </h3>
+      </p>
 
     </div>
 
