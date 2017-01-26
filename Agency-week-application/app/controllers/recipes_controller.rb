@@ -2,7 +2,8 @@ class RecipesController < ApplicationController
   require 'json'
 
   def index
-    @recipe = Recipe.all
+    @recipes = Recipe.all
+    # @recipe = Recipe.find(params[:id])
     @user = User.find(current_user.id)
     @saved = @user.recipes
   end
@@ -29,7 +30,7 @@ class RecipesController < ApplicationController
 
   def create
     puts "CREATE ACTION"
-    # puts params.inspect
+    puts params.inspect
 
 
     # @new_recipe = Recipe.create(recipe_params)
