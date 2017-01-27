@@ -36,24 +36,21 @@ var imageArray = [
 ];
 
 var icons = document.getElementById('icons');
+var headerlogo = document.getElementById('headerlogo');
 
-
-console.log("alla", icons);
-
-
+if (icons !== null){
+  console.log("alla", icons);
   var i = 0
-
-setInterval(function(){
-
-  if (i ==  imageArray.length) {
-    i =0
-  }
+  setInterval(function(){
+    if (i ==  imageArray.length) {
+      i = 0
+    }
     icons.src = imageArray[i];
     i++;
+  }, 1000);
 
+  headerlogo.style.visibility = 'hidden';
 
-}, 1000);
-
-
+}
 
 }); //end window onload

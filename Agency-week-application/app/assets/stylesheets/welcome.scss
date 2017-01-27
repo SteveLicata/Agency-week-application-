@@ -21,7 +21,7 @@ body {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 2;
+    z-index: 999;
     top: 0;
     left: 0;
     background-color: #99f0ca;
@@ -124,9 +124,12 @@ h5 {
   padding: 50px;
 }
 
-#icons {
-  
+#headerlogo {
+  font-size: 50px;
+  float: right;
+  margin-bottom: -10px;
 }
+
 // header
 h3 {
 
