@@ -7,24 +7,28 @@
     </div>
   </div>
   <div class="row size1">
-    <div class="col s12 icon ">
-<center>      <img id="icons" src="" alt=""> </center>
+    <div class="col s4 offset-s4">
+
+      <div class="icon">
+        <img id="icons" src="" alt="">
+      </div>
+
     </div>
   </div>
 <hr>
 
   <div class="row size">
     <div class="col s4">
-      <center><img src="/assets/berry.png" alt=""></center>
-      <center><h3>Got random ingredients in your fridge?</h3></center>
+      <center><img src="/assets/fruit.png" alt=""></center>
+      <center><h4>Got random ingredients in your fridge?</h4></center>
     </div>
     <div class="col s4">
-      <center><img src="/assets/food-21.png" alt=""></center>
-      <center><h3>Well I can help!</h3></center>
+      <center><img src="/assets/food-7.png" alt=""></center>
+      <center><h4>Looking for a recipe?</h4></center>
     </div>
     <div class="col s4">
-      <center><img src="/assets/food-31.png" alt=""></center>
-      <center><h3>Search here for recipes and save them in your book!</h3></center>
+      <center><img src="/assets/food.png" alt=""></center>
+      <center><h4>Search your ingredients and save the recipes!</h4></center>
     </div>
   </div>
   <hr>
@@ -33,7 +37,7 @@
 
   <div class="row size">
     <div class="col s12">
-      <center><h3>Pick Your Ingredient: </h3>
+      <center><h4 class="homesearch">Pick Your Ingredient(s): </h4>
       <%= form_tag("/recipes/yummly-api-call", method: "post") do |f| %>
         <%= label_tag(:ingredient_of_the_day, "Search for an ingredient:") %>
         <%= text_field_tag(:ingredient_of_the_day) %> <br>

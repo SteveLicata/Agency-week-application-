@@ -18,7 +18,7 @@
     </div>
 
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Title: <i class="material-icons right">More Info</i><%= response["recipeName"] %></span>
+      <span class="card-title activator grey-text text-darken-4">Title: <i class="material-icons right">info</i><%= response["recipeName"] %></span>
       <p> <% @url_for_source = "http://www.yummly.com/recipe/#{response["id"]}"%>
           <%= link_to "Link to Recipe", "http://www.yummly.com/recipe/#{response["id"]}", :target => "_blank" %></p>
     </div>

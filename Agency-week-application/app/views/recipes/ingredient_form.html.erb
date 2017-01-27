@@ -1,7 +1,16 @@
 <hr>
-<h4>Pick Your Ingredient: </h4>
-<%= form_tag("/recipes/yummly-api-call", method: "post") do |f| %>
-  <%= label_tag(:ingredient_of_the_day, "Search for an ingredient:") %>
-  <%= text_field_tag(:ingredient_of_the_day) %> <br>
-<%= submit_tag("Submit")%>
-<% end %>
+<div class="searchdiv">
+  <div class="newprofile container">
+    <div class="row">
+      <div class="col s6 offset-s3">
+
+        <h4>Pick Your Ingredient(s): </h4>
+        <%= form_tag("/recipes/yummly-api-call", method: "post") do |f| %>
+          <%= label_tag(:ingredient_of_the_day, "Search for an Ingredient:") %>
+          <%= text_field_tag(:ingredient_of_the_day) %> <br>
+        <%= submit_tag("Submit")%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

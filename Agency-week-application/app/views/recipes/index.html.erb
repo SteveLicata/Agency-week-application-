@@ -1,5 +1,5 @@
 <hr>
-<h4>Favorite Recipes:</h4>
+<center><h4>Favorite Recipes:</h4>
 <hr>
 <div class="container">
   <div class="row">
@@ -14,7 +14,7 @@
         </div>
 
         <div class"card-content">
-          <span class="card-title activator grey-text text-darken">Title: <i class="material-icons right">More Info</i><%= response.recipeName %></span>
+          <span class="card-title activator grey-text text-darken"><strong>Title:</strong> <i class="material-icons right">info</i><%= response.recipeName %></span>
         </div>
 
         <div class="card-action">
@@ -29,31 +29,31 @@
 
 
 
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><%= response.recipeName %><i class="material-icons right">X</i></span>
-
-      <p class="card-text">
-        Rating:
-        <p> <%= response.rating %><br></p>
-        Ingredients:
-        <p> <%= response.ingredients %><br></p>
-        <% puts "ingredients", response.ingredients%>
-      </p>
-    </div>
-
-
-        </div>
-
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"><%= response.recipeName %><i class="material-icons right">close</i></span>
+          <span class="card-title grey-text text-darken-4"><%= response.recipeName %><i class="material-icons right">X</i></span>
 
-          <h3 class="card-text">
+          <p class="card-text">
             Rating:
             <p> <%= response.rating %><br></p>
             Ingredients:
             <p> <%= response.ingredients %><br></p>
             <% puts "ingredients", response.ingredients%>
-          </h3>
+          </p>
+        </div>
+
+
+        </div>
+
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><%= response.recipeName %><i class="material-icons right">X</i></span>
+
+          <p class="card-text">
+            Rating:
+            <p> <%= response.rating %><br></p>
+            Ingredients:
+            <p> <%= response.ingredients %><br></p>
+            <% puts "ingredients", response.ingredients%>
+          </p>
         </div>
 
       </div>
