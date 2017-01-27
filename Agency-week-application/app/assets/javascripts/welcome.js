@@ -1,28 +1,59 @@
-// window.onload = function() {
-//
-// console.log("loaded");
-//
-// var ham = document.getElementById("hamburger");
-// ham.addEventListener('click', function(){
-//   openNav();
-// });
-//
-// var closex = document.getElementById("closingx");
-// closex.addEventListener('click', function(){
-//   closeNav();
-// });
-//
-// function openNav() {
-//     document.getElementById("mySidenav").style.width = "250px";
-//     document.getElementById("main").style.marginLeft = "250px";
-//     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-// };
-//
-// function closeNav() {
-//     document.getElementById("mySidenav").style.width = "0";
-//     document.getElementById("main").style.marginLeft= "0";
-//     document.body.style.backgroundColor = "white";
-// };
-//
-//
-// }; //end window onload
+document.addEventListener('turbolinks:load', function() {
+console.log("12loaded");
+
+
+var imageArray = [
+  "/assets/food-1.png",
+  "/assets/food-2.png",
+  "/assets/food-3.png",
+  "/assets/food-4.png",
+  "/assets/food-5.png",
+  "/assets/food-6.png",
+  "/assets/food-7.png",
+  "/assets/food-8.png",
+  "/assets/food-9.png",
+  "/assets/food-10.png",
+  "/assets/food-11.png",
+  "/assets/food-12.png",
+  "/assets/food-13.png",
+  "/assets/food-14.png",
+  "/assets/food-15.png",
+  "/assets/food-16.png",
+  "/assets/food-17.png",
+  "/assets/food-18.png",
+  "/assets/food-19.png",
+  "/assets/food-20.png",
+  "/assets/food-21.png",
+  "/assets/food-22.png",
+  "/assets/food-23.png",
+  "/assets/food-24.png",
+  "/assets/food-25.png",
+  "/assets/food-26.png",
+  "/assets/food-27.png",
+  "/assets/food-28.png",
+  "/assets/food-29.png",
+  "/assets/food-30.png"
+];
+
+var icons = document.getElementById('icons');
+
+
+console.log("alla", icons);
+
+
+  var i = 0
+
+setInterval(function(){
+
+  if (i ==  imageArray.length) {
+    i =0
+  }
+    icons.src = imageArray[i];
+    i++;
+
+
+}, 1000);
+
+
+
+}); //end window onload

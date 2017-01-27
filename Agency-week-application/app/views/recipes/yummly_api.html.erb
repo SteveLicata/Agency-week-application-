@@ -3,13 +3,14 @@
 
 <hr>
 
+<div class="row">
 
   <% @response["matches"].each_with_index do |response, i| %>
       <%=  puts i %>
 
 
-  <div style="display:<%= i>=1 ? 'none' : 'block' %>" class="card">
 
+  <div style="display:<%= i>=1 ? 'none' : 'block' %>" class="card">
 
     <div class="card-image waves-effect waves-block waves-light">
       <% @image = response["smallImageUrls"][0]%>
@@ -44,9 +45,7 @@
         <strong>Rating: </strong>
         <% @rate = response["rating"]  %>
         <%= @rate %>
-
         <br>
-
         <% if response['totalTimeInSeconds'] != nil %>
             <% @time = response["totalTimeInSeconds"]/60%>
 
@@ -54,21 +53,22 @@
         <% else %>
             <%= "undefined" %>
         <%end  %>
-
         <br>
-
         <strong>Ingredients: </strong>
         <% @ingredients = response["ingredients"].join(', ') %>
         <% response["ingredients"].each do |ing|%><br>
         </li><%= ing %></li>
         <%end%>
 
+
       </p>
 
+
     </div>
-
-
-
-
-</div> <br>
+    </div> <br>
 <%end%>
+
+
+
+
+</div>

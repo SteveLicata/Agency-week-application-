@@ -5,8 +5,13 @@ body {
     // font-family: "Lato", sans-serif;
     transition: background-color .5s;
     // color: #818181;
-    background-color: #fff2be;
+    // background-color: #fff2be;
+    // background-image: image("assets/BG.jpg");
+    // background-size: cover;
+    color: #818181;
+    // background-color: #fff2be;
     background-size: contain;
+    width: 100%;
 
 }
 .cover{
@@ -71,7 +76,7 @@ img {
 .welcome-div, .user-info-div {
 color: red;
 text-align: center;
-background-color: #ffe869;
+// background-color: #ffe869;
 width: 70%;
 margin: 0 auto;
 border-radius: 15%;
@@ -81,24 +86,53 @@ border-radius: 15%;
 
 
 .card {
-  margin: 0 auto;
-  width: 300px;
+
+  // margin: 0 auto;
+  // width: 300px;
 
 }
 
-.container {
-  // height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  overflow: hidden;
+// .container {
+//   // height: 100vh;
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-around;
+//   overflow: hidden;
+// }
+
+  // margin: 0 auto;
+  // width: 300px;
+
+
+//
+// .container {
+//   // height: 100vh;
+//   width: 100%;
+//   display: inline;
+//
+//   justify-content: space-around;
+//
+//   // overflow: hidden;
+// }
+.center-cols > .col {
+  float:none; /* disable the float */
+  display: inline-block; /* make blocks inline-block */
+  text-align: initial; /* restore text-align to default */
 }
+
+// #saved-recipes.card{
+//   display: table-cell;
+//
+// }
 
 img.activator {
   height: 200px;
   width: 300px;
 }
-
+h1{
+  font-family: 'Mr De Haviland', cursive;
+  font-size: 200px;
+}
 // search
 h2 {
   font-family: 'Vast Shadow', cursive;
@@ -114,11 +148,19 @@ h4 {
 h5 {
   font-family: 'Playfair Display SC', serif;
 }
-
+.icon {
+  width: 100px;
+  height: 100px;
+  border: solid red 5px;
+  border-radius: 50%;
+}
 // header
 h3 {
+
   font-family: 'Mr De Haviland', cursive;
   font-size: 70px;
+
+
 }
 
 
@@ -126,4 +168,11 @@ h3 {
 h6 {
   font-family: 'Oswald', sans-serif;
   font-size: 30px
+}
+.size{
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+.size1{
+  padding: 50px;
 }
