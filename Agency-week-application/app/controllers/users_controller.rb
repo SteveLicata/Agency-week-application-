@@ -23,6 +23,7 @@ before_action :authenticate_user!
   end
 
   def update
+    
   end
 
   def destroy

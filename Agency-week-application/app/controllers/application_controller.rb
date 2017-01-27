@@ -6,11 +6,9 @@ class ApplicationController < ActionController::Base
    protected
   #  need to add name and address key in order to render in browser
    def configure_permitted_parameters
-     devise_parameter_sanitizer.permit(
-     :sign_up, keys: [:avatar, :first_name, :last_name, :favorite_protein, :favorite_vegetables, :allergies],
-     )
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:avatar, :first_name, :last_name, :favorite_protein, :favorite_vegetables, :allergies])
+     devise_parameter_sanitizer.permit(:account_update, keys: [:avatar, :first_name, :last_name, :favorite_protein, :favorite_vegetables, :allergies])
    end
-
 
 
   def  after_sign_in_path_for(resource)

@@ -15,14 +15,20 @@ class RecipesController < ApplicationController
   def yummly_api
     @message = "Yummly API"
     @ingredient = params[:ingredient_of_the_day]
-    @user = User.find(current_user.id)
-    @excluded_response = @current_user.allergies
+    puts "current_user", current_user.inspect
+     if current_user != nil
+      @user = User.find(current_user.id)
+      @excluded_response = @current_user.allergies
 
-    # @response = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=ENV['YUMMLY_API_ID']&_app_key=ENV['YUMMLY_API_KEY']&q=#{@ingredient}&excludedIngredient[]=#{@excluded_response}")
-    @response = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=#{ENV['YUMMLY_API_ID']}&_app_key=#{ENV['YUMMLY_API_KEY']}&q=#{@ingredient}&excludedIngredient[]=#{@excluded_response}")
+      # @response = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=ENV['YUMMLY_API_ID']&_app_key=ENV['YUMMLY_API_KEY']&q=#{@ingredient}&excludedIngredient[]=#{@excluded_response}")
+      @response = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=#{ENV['YUMMLY_API_ID']}&_app_key=#{ENV['YUMMLY_API_KEY']}&q=#{@ingredient}&excludedIngredient[]=#{@excluded_response}")
 
-    # render :json => @response
-    @search_criteria = @response["criteria"]["q"]
+      # render :json => @response
+      @search_criteria = @response["criteria"]["q"]
+    else
+      @ingredient = params[:ingredient_of_the_day]
+      @response = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=#{ENV['YUMMLY_API_ID']}&_app_key=#{ENV['YUMMLY_API_KEY']}&q=#{@ingredient}")
+    end
 
   end
 

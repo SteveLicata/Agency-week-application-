@@ -26,8 +26,11 @@
 
       <p id="savebttn">
 
-
-      <%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: @title, ingredients:  @ingredients , rating: @rate, sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: 'savebbttn' %>
+        <% if current_user != nil %>
+              <%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: @title, ingredients:  @ingredients , rating: @rate, sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: 'savebbttn' %>
+        <%else %>
+            <a href="/users/sign_in"> Sign Up</a>
+        <%end %>
         </p>
       <a class="deletebttn" href="">Next</a>
 
