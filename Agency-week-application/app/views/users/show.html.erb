@@ -16,9 +16,9 @@
         <h4>Email:</h4><%=@user.email%>
         <br><hr>
 
-        <h4><%= image_tag @user.avatar.url %></h4>
+        <h4 id="avatar"><%= image_tag @user.avatar.url%></h4>
         <hr>
-        <h4><%= link_to "Edit Profile", edit_user_registration_path %></h4>
+        <h4 id="coloredit"><%= link_to "Edit Profile", edit_user_registration_path %></h4>
 
 
       </div>

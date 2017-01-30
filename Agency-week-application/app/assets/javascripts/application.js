@@ -17,8 +17,12 @@
 
 //needed for JS to work across multiple files/pages
 document.addEventListener('turbolinks:load', function() {
-
 console.log("loaded");
+  // $('.carousel').carousel('set', 3);
+// $("body").fadeTo("slow", 0.5);
+
+
+
 
 var ham = document.getElementById("hamburger");
 ham.addEventListener('click', function(){
@@ -99,6 +103,16 @@ for (var i = 0; i < savebbttn.length; i++) {
       card[num].style.display = 'none';
       card[secondnum].style.display = 'block';
 
+      var elem = document.getElementById('mySwipe');
+      window.mySwipe = Swipe(elem, {
+        startSlide: card[num],
+        auto: 3000,
+        continuous: true,
+        disableScroll: true,
+        stopPropagation: true,
+        callback: function(index, element) {},
+        transitionEnd: function(index, element) {}
+      });
 
     console.log(num, secondnum);
   });
@@ -114,11 +128,17 @@ for (var i = 0; i < deletebttn.length; i++) {
       card[secondnum].style.display = 'block';
 
 
+
     console.log(num, secondnum);
 
 
   })
 }
+$(document).on("pagecreate","#pageone",function(){
+  $("p").on("swipe",function(){
+    $(this).hide();
+  });
+});
 
 
 // NavBar Attribution:
