@@ -27,12 +27,12 @@
       <p id="savebttn">
 
         <% if current_user != nil %>
-             <%= link_to '<i class=" material-icons icon-green">thumb_up</i>'.html_safe, {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: @title, ingredients:  @ingredients , rating: @rate, sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: 'savebbttn' %>
+             <%= link_to '<i class="medium material-icons icon-green">thumb_up</i>'.html_safe, {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: @title, ingredients:  @ingredients , rating: @rate, sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: 'savebbttn' %>
         <%else %>
             <a href="/users/sign_up"> Sign Up</a>
         <%end %>
-        </p>
-        <i class=" material-icons deletebttn ">thumb_down</i>
+        <i class="medium material-icons deletebttn ">thumb_down</i>
+      </p>
 
 
     </div>
@@ -68,7 +68,7 @@
 
     </div>
     </div>
-  
+
 <%end%>
 
 
