@@ -6,9 +6,10 @@
 <div class="row">
 
   <% @response["matches"].each_with_index do |response, i| %>
-      <%=  puts i %>
 
 
+  <div id='mySwipe' style='max-width:500px;margin:0 auto' class='swipe'>
+  <div class='swipe-wrap'>
 
   <div style="display:<%= i>=1 ? 'none' : 'block' %>" class="card">
 
@@ -27,13 +28,12 @@
       <p id="savebttn">
 
         <% if current_user != nil %>
-              <%= link_to "Save Recipe", {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: @title, ingredients:  @ingredients , rating: @rate, sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: 'savebbttn' %>
+             <%= link_to '<i class=" material-icons icon-green">thumb_up</i>'.html_safe, {action: :create, ingredient_of_the_day: @ingredient, user_id: current_user.id, imageURLsBySize: @image, recipeName: @title, ingredients:  @ingredients , rating: @rate, sourceRecipeUrl:  @url_for_source}, method: :post, remote: true, class: 'savebbttn' %>
         <%else %>
-            <a href="/users/sign_in"> Sign Up</a>
+            <a href="/users/sign_up"> Sign Up</a>
         <%end %>
         </p>
-      <a class="deletebttn" href="">Next</a>
-
+        <i class=" material-icons deletebttn ">thumb_down</i>
 
 
     </div>
@@ -68,7 +68,9 @@
 
 
     </div>
-    </div> 
+    </div>
+    </div>
+    </div>
 <%end%>
 
 
