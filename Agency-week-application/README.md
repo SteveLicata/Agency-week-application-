@@ -1,24 +1,31 @@
-# README
+About this app:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Use the Bake & Co. recipe app to search for recipes by any ingredient you have in your fridge. Save the recipes you like to your recipe book, and view them on Yummly's website.
 
-Things you may want to cover:
+Heroku: https://my-bake.herokuapp.com/
 
-* Ruby version
+GitHub: https://github.com/SteveLicata/Agency-week-application-
 
-* System dependencies
+Yummly (API): http://www.yummly.com/
 
-* Configuration
+Technologies used in this app:
 
-* Database creation
+* Ruby on Rails
 
-* Database initialization
+* Devise
 
-* How to run the test suite
+* Paperclip
 
-* Services (job queues, cache servers, search engines, etc.)
+* SQLite3/ActiveRecord
 
-* Deployment instructions
+* Guitar Party API
 
-* ...
+* HTML5
+
+* CSS3
+
+* Materialize
+
+* Google Fonts
+
+* jQuery
