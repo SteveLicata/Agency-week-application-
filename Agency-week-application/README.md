@@ -4,6 +4,8 @@ Use the Bake & Co. recipe app to search for recipes by any ingredient you have i
 
 Heroku: https://my-bake.herokuapp.com/
 
+Demo Login Email: bcdemologin@gmail.com | Password: lovetoeat 
+
 GitHub: https://github.com/SteveLicata/Agency-week-application-
 
 Yummly (API): http://www.yummly.com/
